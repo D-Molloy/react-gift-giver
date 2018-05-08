@@ -6,7 +6,21 @@ import App from './App';
 
 const app = shallow(<App />)
 
-//unit test for app component
+//unit test for rendering the app component
 it("renders correctly", () =>{
     expect(app).toMatchSnapshot()
+})
+
+//make sure the app initializes the state with a empty list of gifts
+it("initializes the `state` with an empty list of gifts", () => {
+    expect(app.state().gifts).toEqual([]);
+})
+
+it("add a new gift to `state` when clicking on the `add gift` button", ()=>{
+    //need to find and click on the `add gift` button to run the test
+    //find inner child nodes or components by their JSX or className
+    app.find(".btn-add").simulate('click');
+    //expect that clicking on the button with an empty state adds a gift with an id = 1
+
+    expect(app.state().gifts).toEqual([{id:1}]);
 })
