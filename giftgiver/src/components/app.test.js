@@ -38,3 +38,7 @@ it("adds a new gift to the rendered list when clicking the `add gift` button", (
 
     expect(app.find(".gift-list").children().length).toEqual(2);
 })
+
+it("creates a gift component", ()=>{
+	expect(app.find("Gift").exists()).toBe(true);
+})

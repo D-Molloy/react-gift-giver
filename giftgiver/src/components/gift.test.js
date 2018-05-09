@@ -24,4 +24,14 @@ describe('Gift', () => {
         } )
     })
     
+    describe("typing into the present input", ()=>{
+        const present = "Jerk Seasoning"
+        beforeEach(()=>{
+            gift.find(".input-present").simulate('change', {target:{value: present}})
+        })
+
+        it("updates the present in `state`", ()=>{
+            expect(gift.state().present).toEqual(present);
+        })
+    })
 })
