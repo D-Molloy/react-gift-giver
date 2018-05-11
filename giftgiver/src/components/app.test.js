@@ -23,6 +23,8 @@ it("initializes the `state` with an empty list of gifts",()=> {
 //changing the gift-rendering test  from .toEqual(1) to .toEqual(2) hacks our way around the failed test (because its not the first click in the second test)
 
 describe('when clicking the `add-gift` button', () =>{
+    //allow us to destructure below when id is referenced
+    const id = 1;
 
     beforeEach(()=>{
         app.find('.btn-add').simulate('click');
@@ -38,19 +40,31 @@ describe('when clicking the `add-gift` button', () =>{
         // app.find(".btn-add").simulate('click');
         //expect that clicking on the button with an empty state adds a gift with an id = 1
 
-        expect(app.state().gifts).toEqual([{id:1}]);
+        expect(app.state().gifts).toEqual([{id}]);
     });
 
     //when we click on the `add gift` button we want the GiftList Component to display a new Gift Component inside it
     it("adds a new gift to the rendered list", ()=>{
         // app.find(".btn-add").simulate('click');
 
-        expect(app.find(".gift-list").children().length).toEqual(1);
+        expect(app.find(".gift-list").children().length).toEqual(id);
     });
 
     ///to check if a component gets created
     it("creates a gift component", ()=>{
         expect(app.find("Gift").exists()).toBe(true);
     });
+
+    describe('and the user wants to remove the added gift', () =>{
+        beforeEach(()=>{
+            // .instance allows us to call helper functions
+            app.instance().removeGift(id);
+        })
+
+        it('removes the gift from `state`', () =>{
+            expect(app.state().gifts).toEqual([])
+        })
+
+    })
 
 });
