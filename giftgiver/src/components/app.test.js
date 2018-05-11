@@ -8,37 +8,49 @@ import App from './App';
 
 const app = shallow(<App />)
 
+
 //unit test for rendering the app component
 it("renders correctly", () =>{
     expect(app).toMatchSnapshot()
 })
 
-//make sure the app initializes the state with a empty list of gifts
-it("initializes the `state` with an empty list of gifts", () => {
-    expect(app.state().gifts).toEqual([]);
-})
+it("initializes the `state` with an empty list of gifts",()=> {
+    expect(app.state().gifts).toEqual([])
+});
 
 // having to tests where we are clicking on the same button results in receiving errors for both
 //this is test pollution
 //changing the gift-rendering test  from .toEqual(1) to .toEqual(2) hacks our way around the failed test (because its not the first click in the second test)
 
+describe('when clicking the `add-gift` button', () =>{
 
-it("add a new gift to `state` when clicking on the `add gift` button", ()=>{
-    //need to find and click on the `add gift` button to run the test
-    //find inner child nodes or components by their JSX or className
-    app.find(".btn-add").simulate('click');
-    //expect that clicking on the button with an empty state adds a gift with an id = 1
+    beforeEach(()=>{
+        app.find('.btn-add').simulate('click');
+    });
 
-    expect(app.state().gifts).toEqual([{id:1}]);
-})
+    afterEach(() =>{
+        app.setState({gifts:[]});
+    });
 
-//when we click on the `add gift` button we want the GiftList Component to display a new Gift Component inside it
-it("adds a new gift to the rendered list when clicking the `add gift` button", ()=>{
-    app.find(".btn-add").simulate('click');
+    it("add a new gift to `state`", ()=>{
+        //need to find and click on the `add gift` button to run the test
+        //find inner child nodes or components by their JSX or className
+        // app.find(".btn-add").simulate('click');
+        //expect that clicking on the button with an empty state adds a gift with an id = 1
 
-    expect(app.find(".gift-list").children().length).toEqual(2);
-})
+        expect(app.state().gifts).toEqual([{id:1}]);
+    });
 
-it("creates a gift component", ()=>{
-	expect(app.find("Gift").exists()).toBe(true);
-})
+    //when we click on the `add gift` button we want the GiftList Component to display a new Gift Component inside it
+    it("adds a new gift to the rendered list", ()=>{
+        // app.find(".btn-add").simulate('click');
+
+        expect(app.find(".gift-list").children().length).toEqual(1);
+    });
+
+    ///to check if a component gets created
+    it("creates a gift component", ()=>{
+        expect(app.find("Gift").exists()).toBe(true);
+    });
+
+});
