@@ -2,7 +2,7 @@
 
 ## About
 
-Two simple React app bootstrapped with create-react-app.  Built to use Jest and Enzyme to learn more about TDD/BDD.  A full suite of tests with complete coverage is included.
+Two simple React apps bootstrapped with create-react-app.  Built to use Jest and Enzyme to learn more about TDD/BDD.  A full suite of tests with complete coverage is included.
 
 
 ## Getting Started
