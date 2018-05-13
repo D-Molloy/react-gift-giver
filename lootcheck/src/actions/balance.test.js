@@ -12,7 +12,7 @@ it("creates an action to set the balance", ()=>{
     const balance = 0;
 
     const expectedAction = {type: constants.SET_BALANCE, balance};
-    //SET_BALANCE = action..created by the action creator:
+    //SET_BALANCE is an action..created by the action creator:
     expect(actions.setBalance(balance)).toEqual(expectedAction);
 
 })
