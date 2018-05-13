@@ -9,4 +9,23 @@ describe('App', () => {
   it('Should render the App component', () => {
     expect(app).toMatchSnapshot()
   })
+
+  //test to make sure the Wallet component renders
+  it("contains a Wallet component", ()=>{
+    //need to find the connect version using an enzyme trick
+    // console.log(app.debug())
+    //shows that our Wallet is connected
+    // <div>
+    //   <h2>
+    //     Loot Check
+    //   </h2>
+    //   <hr />
+    //   <Connect(Wallet) />
+    // </div>
+
+    //expect app to find a Wallet component
+    // expect(app.find("Wallet").exists()).toBe(true);
+    //expect to find a connected wallet component
+    expect(app.find("Connect(Wallet)").exists()).toBe(true);
+  })
 })

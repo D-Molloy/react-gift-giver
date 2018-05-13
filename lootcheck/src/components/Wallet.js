@@ -22,4 +22,5 @@ export class Wallet extends Component {
 
 //first parameter - function that takes in the previous state and maps it onto the component...this allow the state to be available in the component via props.  The objects is the part of the props, and we grab the whole state from redux (as its just the balance now) and map it to balance in this components state
 // THE MAP STATE TO PROPS PORTION of the connect function: state => { balance: state}
-export default connect(state => { balance: state}, null)(Wallet);
+//cant implicitly return the state so you need to use the syntax below
+export default connect(state => {return { balance: state }}, null)(Wallet);
