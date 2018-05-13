@@ -12,6 +12,23 @@ describe("balanceReducer", ()=>{
         expect(balanceReducer(undefined, {type: constants.SET_BALANCE, balance})).toEqual(balance);
     })
 
-})
+    //test for depositing into the balance
+    it('deposits into the balance', () => {
+        const deposit = 10;
+        const initialState = 5;
+        //previous state is the first parameter of the reducer, followed by the action
+        expect(balanceReducer(initialState, {type: constants.DEPOSIT, deposit})).toEqual(initialState + deposit);
+    }) 
+
+    //testing the withdrawal portion of the reducer
+    it('withdraws from the balance', () => {
+        const withdrawal = 10;
+        const initialState = 20;
+        //previous state is the first parameter of the reducer, followed by the action
+        expect(balanceReducer(initialState, {type: constants.WITHDRAW, withdrawal})).toEqual(initialState - withdrawal);
+    }) 
+
+});
+
 
 
