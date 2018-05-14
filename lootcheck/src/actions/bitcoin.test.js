@@ -25,7 +25,7 @@ const mockResponse = { body: { bpi: 'bitcoin price index'}};
 // 2 - object of what we want the stubbed endpoint to return
 fetchMock.get("https://api.coindesk.com/v1/bpi/currentprice.json", mockResponse);
 
-describe("it creates an async action to fetch the bitcoin value", ()=>{
+it("creates an async action to fetch the bitcoin value", ()=>{
     //the async fetchMock function will return a promise that redux can handle
     //getActions shows what actions are actually dispatched to the store
     const expectedActions = [{bitcoin: mockResponse.body, type: FETCH_BITCOIN}];

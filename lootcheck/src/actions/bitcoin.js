@@ -1,5 +1,5 @@
 import {FETCH_BITCOIN} from './constants';
-
+// redux action to fetch bitcoin data
 export const fetchBitcoin = () => {
     //the way the redux-thunk middleware works is  that when we want to return an async action (like a promise), the thunk middleware takes it and gives us a dispatch function that represents the dispatch ability of the redux store
     //this dispatch is extra powerful - we can return the async fetch
