@@ -7,7 +7,7 @@ describe("Wallet", ()=>{
     // testing the action creator for deposits
     const mockDeposit = jest.fn();
     //creating props for testing props are passed to the component
-    const props = { balance: 20, deposit: mockDeposit};
+    const props = { balance: 20, deposit: mockDeposit, withdrawal: mockDeposit};
     //spreading the props into the component
     const wallet = shallow(<Wallet {...props} />);
     //checking to make sure the Wallet component renders
@@ -40,6 +40,15 @@ describe("Wallet", ()=>{
             beforeEach(()=>wallet.find('.btn-deposit').simulate('click'));
 
             it('dispatches the `deposit()` it receives from props with local balance', ()=>{
+                //pass local balance as a argument to the deposit function we get via props
+                expect(mockDeposit).toHaveBeenCalledWith(parseInt(userBalance, 10))
+            })
+        })
+
+        describe("and the user wants to make a withdrawal", () => {
+            beforeEach(()=>wallet.find('.btn-withdraw').simulate('click'));
+
+            it('dispatches the `withdraw()` it receives from props with local balance', ()=>{
                 //pass local balance as a argument to the deposit function we get via props
                 expect(mockDeposit).toHaveBeenCalledWith(parseInt(userBalance, 10))
             })

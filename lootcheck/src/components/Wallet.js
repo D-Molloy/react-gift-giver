@@ -1,7 +1,7 @@
 import React, { Component } from 'react'
 import {connect} from 'react-redux';
 //import our actions we want to bind to the component
-import {deposit} from '../actions/balance';
+import {deposit, withdrawal} from '../actions/balance';
 
 export class Wallet extends Component {
     constructor(){
@@ -17,6 +17,8 @@ export class Wallet extends Component {
     //call the deposit action to send the balance to the store
     deposit = () => this.props.deposit(this.state.balance);
 
+    withdraw = () => this.props.withdrawal(this.state.balance)
+
     render () {
         return (
             <div>
@@ -27,6 +29,7 @@ export class Wallet extends Component {
                     onChange={this.updateBalance}
                 />
                 <button className="btn-deposit" onClick={this.deposit}>Deposit</button>
+                <button className="btn-withdraw" onClick={this.withdraw}>Withdraw</button>
             </div>
         )
     }
@@ -50,5 +53,5 @@ export class Wallet extends Component {
 // THE MAP STATE TO PROPS PORTION of the connect function: state => { balance: state}
 //cant implicitly return the state so you need to use the syntax below
 
-//change the second parameter from null to {balance}  - we are beinding the actions to this component
-export default connect(state => {return { balance: state }}, {deposit})(Wallet);
+//change the second parameter from null to {balance}  - we are binding the actions (deposit) to the props of this component
+export default connect(state => {return { balance: state }}, {deposit, withdrawal})(Wallet);
