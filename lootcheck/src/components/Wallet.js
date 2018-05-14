@@ -45,7 +45,7 @@ export class Wallet extends Component {
 //  We want to export the connected component
 // export default Wallet;
 // connect returns a function and we pass the Component we want connected
-// CONNECT() TAKES TO PARAMETERS
+// CONNECT() TAKES TWO PARAMETERS
 //first - a function that describes what part of the redux store we want to use on this component
 //second - what actionCreators we want to use in the component to send data to the redux store (not currently using right now)
 

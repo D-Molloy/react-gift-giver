@@ -11,7 +11,7 @@ describe('App', () => {
   })
 
   //test to make sure the Wallet component renders
-  it("contains a Wallet component", ()=>{
+  it("contains a connected Wallet component", ()=>{
     //need to find the connect version using an enzyme trick
     // console.log(app.debug())
     //shows that our Wallet is connected
@@ -27,5 +27,9 @@ describe('App', () => {
     // expect(app.find("Wallet").exists()).toBe(true);
     //expect to find a connected wallet component
     expect(app.find("Connect(Wallet)").exists()).toBe(true);
+  })
+
+  it('contains a connected Loot component', ()=>{
+    expect(app.find("Connect(Loot)").exists()).toBe(true);
   })
 })
