@@ -54,4 +54,13 @@ export class Wallet extends Component {
 //cant implicitly return the state so you need to use the syntax below
 
 //change the second parameter from null to {balance}  - we are binding the actions (deposit) to the props of this component
-export default connect(state => {return { balance: state }}, {deposit, withdrawal})(Wallet);
+// export default connect(state => {return { balance: state }}, {deposit, withdrawal})(Wallet);
+
+//this change due to implementing the bitcoin reducer and index:
+//because state is more than just balance now.
+//we could use just state, but passing the entire state (instead of just what is needed) is wasteful.
+//so change again from this:
+// export default connect(state => state, {deposit, withdrawal})(Wallet);
+//to this:
+export default connect(state => { return {balance: state.balance}}, {deposit, withdrawal})(Wallet);
+
