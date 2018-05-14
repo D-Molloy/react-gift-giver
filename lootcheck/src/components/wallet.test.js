@@ -4,8 +4,10 @@ import {shallow} from 'enzyme';
 import {Wallet} from './Wallet';
 
 describe("Wallet", ()=>{
+    // testing the action creator for deposits
+    const mockDeposit = jest.fn();
     //creating props for testing props are passed to the component
-    const props = { balance: 20};
+    const props = { balance: 20, deposit: mockDeposit};
     //spreading the props into the component
     const wallet = shallow(<Wallet {...props} />);
     //checking to make sure the Wallet component renders
@@ -33,5 +35,14 @@ describe("Wallet", ()=>{
             //passing 10 as the second parameter to parseInt == decimal system
             expect(wallet.state().balance).toEqual(parseInt(userBalance, 10))
         });
+
+        describe("and the user wants to make a deposit", () => {
+            beforeEach(()=>wallet.find('.btn-deposit').simulate('click'));
+
+            it('dispatches the `deposit()` it receives from props with local balance', ()=>{
+                //pass local balance as a argument to the deposit function we get via props
+                expect(mockDeposit).toHaveBeenCalledWith(parseInt(userBalance, 10))
+            })
+        })
     });
 });
