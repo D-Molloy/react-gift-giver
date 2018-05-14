@@ -2,10 +2,24 @@ import React, { Component } from 'react'
 import {connect} from 'react-redux';
 
 export class Wallet extends Component {
+    constructor(){
+        //invoke the constructors of the parent (Component)
+        super();
+        this.state = {
+            balance: undefined
+        }
+    }
+    //passing 10 as the second parameter to parseInt == decimal system
+    updateBalance = event => this.setState({balance: parseInt(event.target.value, 10)})
+
     render () {
         return (
             <div>
                 <h3 className="balance">Wallet Balance: {this.props.balance}</h3>
+                <br />
+                <input 
+                    className="input-wallet" 
+                    onChange={this.updateBalance}/>
             </div>
         )
     }
