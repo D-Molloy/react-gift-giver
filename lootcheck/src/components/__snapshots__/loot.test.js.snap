@@ -22,39 +22,21 @@ ShallowWrapper {
     "props": Object {
       "children": Array [
         <h3
-          id="BCBalance"
->
-          # of Bitcoins you can afford: 
-          
-</h3>,
-        <h3
           id="BCPrice"
 >
           Current Bitcoin price: $
+          
+</h3>,
+        <h3
+          id="BCBalance"
+>
+          # of Bitcoins you can afford: 
           
 </h3>,
       ],
     },
     "ref": null,
     "rendered": Array [
-      Object {
-        "instance": null,
-        "key": undefined,
-        "nodeType": "host",
-        "props": Object {
-          "children": Array [
-            "# of Bitcoins you can afford: ",
-            "",
-          ],
-          "id": "BCBalance",
-        },
-        "ref": null,
-        "rendered": Array [
-          "# of Bitcoins you can afford: ",
-          "",
-        ],
-        "type": "h3",
-      },
       Object {
         "instance": null,
         "key": undefined,
@@ -73,6 +55,24 @@ ShallowWrapper {
         ],
         "type": "h3",
       },
+      Object {
+        "instance": null,
+        "key": undefined,
+        "nodeType": "host",
+        "props": Object {
+          "children": Array [
+            "# of Bitcoins you can afford: ",
+            "",
+          ],
+          "id": "BCBalance",
+        },
+        "ref": null,
+        "rendered": Array [
+          "# of Bitcoins you can afford: ",
+          "",
+        ],
+        "type": "h3",
+      },
     ],
     "type": "div",
   },
@@ -84,39 +84,21 @@ ShallowWrapper {
       "props": Object {
         "children": Array [
           <h3
-            id="BCBalance"
->
-            # of Bitcoins you can afford: 
-            
-</h3>,
-          <h3
             id="BCPrice"
 >
             Current Bitcoin price: $
+            
+</h3>,
+          <h3
+            id="BCBalance"
+>
+            # of Bitcoins you can afford: 
             
 </h3>,
         ],
       },
       "ref": null,
       "rendered": Array [
-        Object {
-          "instance": null,
-          "key": undefined,
-          "nodeType": "host",
-          "props": Object {
-            "children": Array [
-              "# of Bitcoins you can afford: ",
-              "",
-            ],
-            "id": "BCBalance",
-          },
-          "ref": null,
-          "rendered": Array [
-            "# of Bitcoins you can afford: ",
-            "",
-          ],
-          "type": "h3",
-        },
         Object {
           "instance": null,
           "key": undefined,
@@ -131,6 +113,24 @@ ShallowWrapper {
           "ref": null,
           "rendered": Array [
             "Current Bitcoin price: $",
+            "",
+          ],
+          "type": "h3",
+        },
+        Object {
+          "instance": null,
+          "key": undefined,
+          "nodeType": "host",
+          "props": Object {
+            "children": Array [
+              "# of Bitcoins you can afford: ",
+              "",
+            ],
+            "id": "BCBalance",
+          },
+          "ref": null,
+          "rendered": Array [
+            "# of Bitcoins you can afford: ",
             "",
           ],
           "type": "h3",

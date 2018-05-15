@@ -26,18 +26,15 @@ export class Loot extends Component {
 
     showPrice(){
         const { bitcoin } = this.props;
-        
         if (Object.keys(bitcoin).length === 0) return '';
-        console.log(typeof(bitcoin.bpi.USD.rate))
         return bitcoin.bpi.USD.rate;
     }
 
     render(){
         return (
             <div>
-            
-            <h3 id="BCBalance"># of Bitcoins you can afford: {this.computeBitcoin()}</h3>
-            <h3 id="BCPrice">Current Bitcoin price: ${this.showPrice()}</h3>
+                <h3 id="BCPrice">Current Bitcoin price: ${this.showPrice()}</h3>
+                <h3 id="BCBalance"># of Bitcoins you can afford: {this.computeBitcoin()}</h3>
             </div>
         )
     }
