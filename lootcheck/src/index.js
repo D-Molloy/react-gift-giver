@@ -7,7 +7,7 @@ import thunk from 'redux-thunk';
 //need a rootReducer (the balance reducer in this case)
 import rootReducer from "./reducers";
 //redux gives us the combineReducers function by mapping all the reducers to an object, so we add the index.js file to the reducers folder
-
+import './index.css'
 
 //also need the provider (React specific component)  from react-redux
 //  the provider PROVIDES the redux store to the whole application
